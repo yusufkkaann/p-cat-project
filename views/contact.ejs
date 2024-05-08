@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video Catalog</title>
-    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
-    <!-- https://fontawesome.com/ -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
-      rel="stylesheet"
-    />
-    <!-- https://fonts.google.com/ -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
-  </head>
-  <!--
+<%- include('partials/_header') -%>
 
-TemplateMo 552 Video Catalog
-
-https://templatemo.com/tm-552-video-catalog
-
--->
   <body>
     <div class="tm-page-wrap mx-auto">
       <div class="position-relative">
@@ -78,48 +57,37 @@ https://templatemo.com/tm-552-video-catalog
                 <div class="col-lg-10 offset-1 mb-5">
                   <form
                     id="contact-form"
-                    action=""
+                    action="/photos"
                     method="POST"
                     class="tm-contact-form"
                   >
                     <div class="form-group">
                       <input
                         type="text"
-                        name="name"
+                        name="title"
                         class="form-control rounded-0"
-                        placeholder="Name"
+                        placeholder="Photo title"
                         required=""
                       />
                     </div>
-                    <div class="form-group">
-                      <input
-                        type="email"
-                        name="email"
-                        class="form-control rounded-0"
-                        placeholder="Email"
-                        required=""
-                      />
-                    </div>
-                    <div class="form-group">
-                      <select
-                        class="form-control"
-                        id="contact-select"
-                        name="inquiry"
-                      >
-                        <option value="-">Subject</option>
-                        <option value="sales">Sales &amp; Marketing</option>
-                        <option value="creative">Creative Design</option>
-                        <option value="uiux">UI / UX</option>
-                      </select>
-                    </div>
+                  
+                  
                     <div class="form-group">
                       <textarea
                         rows="8"
-                        name="message"
+                        name="description"
                         class="form-control rounded-0"
-                        placeholder="Message"
+                        placeholder="Photo description"
                         required=""
                       ></textarea>
+                    </div>
+                    <div class="form-group-file">
+                      <input
+                        type="file"
+                        name="file"
+                        class="form-control-file rounded-0"
+                        
+                      />
                     </div>
 
                     <div class="form-group mb-0">
