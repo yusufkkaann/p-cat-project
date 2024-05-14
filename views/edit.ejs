@@ -57,7 +57,7 @@
                 <div class="col-lg-10 offset-1 mb-5">
                   <form
                     id="contact-form"
-                    action="/photos"
+                    action="/photos/<%= photo._id %>?_method=PUT"
                     method="POST"
                     class="tm-contact-form"
                     encType="multipart/form-data"
@@ -69,6 +69,7 @@
                         class="form-control rounded-0"
                         placeholder="Photo title"
                         required=""
+                        value="<%= photo.title %>"
                       />
                     </div>
                   
@@ -80,16 +81,11 @@
                         class="form-control rounded-0"
                         placeholder="Photo description"
                         required=""
-                      ></textarea>
+                      >
+                      <%= photo.description %>
+                    </textarea>
                     </div>
-                    <div class="form-group-file">
-                      <input
-                        type="file"
-                        name="image"
-                        class="form-control-file rounded-0"
-                        
-                      />
-                    </div>
+                  
 
                     <div class="form-group mb-0">
                       <button
