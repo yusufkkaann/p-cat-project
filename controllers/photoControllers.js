@@ -5,8 +5,21 @@ const path = require("path");
 exports.gelAllPhotos = async (req, res) => {
   // Bu nedenle, path.resolve() işlevi, dosya yolunu belirtmek için kullanılmaktadır.
   //res.sendFile(path.resolve(__dirname, "temp/index.html"));
-  const photos = await Photo.find({}).sort("-createdAt");
-  res.render("index.ejs", { photos });
+  // const photos = await Photo.find({}).sort("-createdAt");
+  // res.render("index.ejs", { photos });
+
+  const page = parseInt(req.query.page) || 1;
+  const pageSize = 3; // sayfa başına kaç fotoğraf gösterilecek
+  const totalPhotos = await Photo.countDocuments({}); // toplam fotoğraf sayısı
+  const photos = await Photo.find({})
+    .sort("-createdAt")
+    .skip((page - 1) * pageSize) // 1-1=0 0*5=0 0 dan başla
+    .limit(pageSize);
+  res.render("index.ejs", {
+    photos,
+    current: page, // şu anki sayfa
+    pages: Math.ceil(totalPhotos / pageSize), // toplam sayfa sayısı
+  });
 };
 
 exports.createPhoto = (req, res) => {
